@@ -21,6 +21,10 @@ let s:colors = {
       \ "menu_grey": get(s:overrides, "menu_grey", { "gui": "#3E4452", "cterm": "237", "cterm16": "8" }),
       \ "special_grey": get(s:overrides, "special_grey", { "gui": "#3B4048", "cterm": "238", "cterm16": "15" }),
       \ "vertsplit": get(s:overrides, "vertsplit", { "gui": "#181A1F", "cterm": "59", "cterm16": "15" }),
+      \ "blue_bg": get(s:overrides, "blue_bg", { "gui": "#2e3947", "cterm": "59", "cterm16": "15" }),
+      \ "purple_bg": get(s:overrides, "purple_bg", { "gui": "#383445", "cterm": "170", "cterm16": "5" }),
+      \ "yellow_bg": get(s:overrides, "yellow_bg", { "gui": "#3b3b3b", "cterm": "180", "cterm16": "3" }),
+      \ "comment_grey_bg": get(s:overrides, "comment_grey_bg", { "gui": "#2d323a", "cterm": "59", "cterm16": "15" }),
       \}
 
 function! onedark#GetColors()

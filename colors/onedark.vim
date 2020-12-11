@@ -151,6 +151,15 @@ let s:menu_grey = s:colors.menu_grey
 let s:special_grey = s:colors.special_grey
 let s:vertsplit = s:colors.vertsplit
 
+" Custom Backgrounds
+let s:blue_bg = s:colors.blue_bg
+let s:purple_bg = s:colors.purple_bg
+let s:yellow_bg = s:colors.yellow_bg
+let s:comment_grey_bg = s:colors.comment_grey_bg
+map <F5> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 " }}}
 
 " Terminal Colors {{{
@@ -166,7 +175,7 @@ let g:terminal_ansi_colors = [
 
 " Syntax Groups (descriptions and ordering from `:h w18`) {{{
 
-call s:h("Comment", { "fg": s:comment_grey, "gui": "italic", "cterm": "italic" }) " any comment
+call s:h("Comment", { "fg": s:comment_grey, "gui": "italic", "cterm": "italic", "bg": s:comment_grey_bg }) " any comment
 call s:h("Constant", { "fg": s:cyan }) " any constant
 call s:h("String", { "fg": s:green }) " a string constant: "this is a string"
 call s:h("Character", { "fg": s:green }) " a character constant: 'c', '\n'
@@ -174,12 +183,14 @@ call s:h("Number", { "fg": s:dark_yellow }) " a number constant: 234, 0xff
 call s:h("Boolean", { "fg": s:dark_yellow }) " a boolean constant: TRUE, false
 call s:h("Float", { "fg": s:dark_yellow }) " a floating point constant: 2.3e10
 call s:h("Identifier", { "fg": s:red }) " any variable name
-call s:h("Function", { "fg": s:blue }) " function name (also: methods for classes)
-call s:h("Statement", { "fg": s:purple }) " any statement
-call s:h("Conditional", { "fg": s:purple }) " if, then, else, endif, switch, etc.
-call s:h("Repeat", { "fg": s:purple }) " for, do, while, etc.
-call s:h("Label", { "fg": s:purple }) " case, default, etc.
-call s:h("Operator", { "fg": s:purple }) " sizeof", "+", "*", etc.
+call s:h("Function", { "fg": s:blue, "bg": s:blue_bg }) " function name (also: methods for classes)
+call s:h("pythonFunctionCall", { "fg": s:blue }) " function name (also: methods for classes)
+call s:h("pythonBuiltinFunc", { "fg": s:purple, "bg": s:purple_bg }) " function name (also: methods for classes)
+call s:h("Statement", { "fg": s:purple, "bg": s:purple_bg }) " any statement
+call s:h("Conditional", { "fg": s:purple, "bg": s:blue_bg }) " if, then, else, endif, switch, etc.
+call s:h("Repeat", { "fg": s:purple, "bg": s:purple_bg }) " for, do, while, etc.
+call s:h("Label", { "fg": s:purple, "bg": s:purple_bg }) " case, default, etc.
+call s:h("Operator", { "fg": s:purple, "bg": s:purple_bg }) " sizeof", "+", "*", etc.
 call s:h("Keyword", { "fg": s:red }) " any other keyword
 call s:h("Exception", { "fg": s:purple }) " try, catch, throw
 call s:h("PreProc", { "fg": s:yellow }) " generic Preprocessor
@@ -189,9 +200,9 @@ call s:h("Macro", { "fg": s:purple }) " same as Define
 call s:h("PreCondit", { "fg": s:yellow }) " preprocessor #if, #else, #endif, etc.
 call s:h("Type", { "fg": s:yellow }) " int, long, char, etc.
 call s:h("StorageClass", { "fg": s:yellow }) " static, register, volatile, etc.
-call s:h("Structure", { "fg": s:yellow }) " struct, union, enum, etc.
+call s:h("Structure", { "fg": s:yellow, "bg": s:purple_bg }) " struct, union, enum, etc.
 call s:h("Typedef", { "fg": s:yellow }) " A typedef
-call s:h("Special", { "fg": s:blue }) " any special symbol
+call s:h("Special", { "fg": s:blue, "bg": s:blue_bg }) " any special symbol
 call s:h("SpecialChar", { "fg": s:dark_yellow }) " special character in a constant
 call s:h("Tag", {}) " you can use CTRL-] on this
 call s:h("Delimiter", {}) " character that needs attention
